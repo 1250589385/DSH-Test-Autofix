@@ -5,6 +5,20 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.1.1] - 2026-10-19
+
+内容与 0.1.0 相同，仅版本号递增。
+
+发布 0.1.0 时 npm registry 已把它收进异步处理队列，随后重复发布被拒绝
+（`409 Cannot publish over previously staged version "0.1.0"`）。
+0.1.1 携带完全相同的代码重新发布，registry 现在以它作为 `latest`。
+
+### 修复
+
+- **pytest 绝对路径行号定位**：回溯帧形如 `D:\work\test_a.py:30: in test_x`
+  时，原来的正则把盘符后的冒号当成路径分隔，导致 `line` 为 `undefined`。
+  现在允许绝对路径与两种分隔符。
+
 ## [0.1.0] - 2026-10-19
 
 首个版本。
