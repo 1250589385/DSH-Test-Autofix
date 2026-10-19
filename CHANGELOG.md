@@ -1,0 +1,46 @@
+# 更新日志
+
+本项目的所有重要变更都记录在此文件。
+
+格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
+版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
+
+## [0.1.0] - 2026-10-19
+
+首个版本。
+
+### 新增
+
+- **`run_tests` 工具**：运行项目测试并返回结构化失败结果，而不是原始输出。
+- **六个框架的自动识别**：pytest / jest / vitest / cargo / go / npm，
+  可用 `framework` 参数强制指定。
+- **失败结构化**：每条失败带文件路径、行号、断言消息与裁剪后的回溯。
+- **参数化测试支持**：`test_x[6]`、`test_x[7]` 这类同名用例按出现顺序
+  逐一配对，不会互相错配。
+- **中文断言不乱码**：给子进程注入 `PYTHONIOENCODING=utf-8` / `PYTHONUTF8=1`，
+  并带 UTF-8 → GBK 的解码回退，Windows 中文环境下的断言消息完整保留。
+- **解释器探测**：pytest 按 `.venv` → `DSH_PYTHON` → `python` → `python3` →
+  `py -3` 的顺序寻找真正能 `import pytest` 的解释器，避免系统 Python 遮蔽虚拟环境。
+- **包管理器探测**：jest/vitest 优先用 `node_modules/.bin` 的本地 shim，
+  其次 `npx` → `pnpm exec` → `yarn`，最后回退 `npm test`。
+  某些运行环境（例如只带 pnpm 的 DSH 运行时）没有 `npx`。
+- **循环防护**：同一失败签名重复出现时返回 `status: "loop"` 并提示停止，
+  避免反复修改无果还继续烧 token。签名刻意忽略行号——修复通常移动行号。
+- **失败时不污染回合**：参数错误、找不到 runner、找不到解释器都返回
+  结构化结果与 `notes`，不抛异常。
+
+### 测试
+
+65 个用例：
+
+- `parsers.test.js`（27）—— 四个框架解析、签名稳定性、框架探测优先级
+- `real-output.test.js`（14）—— 本机真实抓取的 pytest 输出回归
+- `hard-mode.test.js`（11）—— 中文断言、参数化 id、嵌套类、批量失败
+- `e2e.test.js`（13）—— 完整调用链：失败 / 循环 / 通过
+
+### 已知限制
+
+- 解析器依赖各框架的默认输出格式；自定义 reporter 可能让其失效，
+  此时回退到 `raw_tail`（原始输出尾部）
+- 只处理测试框架，不含 lint / typecheck
+- 嵌套类的显示名取决于 pytest 版本
