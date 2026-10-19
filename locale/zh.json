@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "测试自动修复",
+    "description": "运行测试并把结构化失败结果交给 agent——哪个文件、哪一行、什么断言挂了——让它直接修复，而不是去读原始输出。自动识别 pytest / jest / vitest / cargo / go / npm，Windows 下中文断言不乱码，同一处失败反复出现时自动停止避免烧钱。"
+  }
+}
