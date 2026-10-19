@@ -1,0 +1,6 @@
+# dsh-test-autofix bundle patch.
+#
+# One Host row: registers the `run_tests` tool.
+- insert:
+    - id: test-autofix
+      name: dsh-test-autofix
