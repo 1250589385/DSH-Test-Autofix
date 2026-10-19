@@ -1,6 +1,6 @@
 {
   "name": "dsh-test-autofix",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "DSH 测试修复循环插件：自动识别项目测试框架，运行测试并结构化解析失败信息，把「哪个文件、哪一行、什么断言失败」精准注入对话，让 agent 直接进入修复循环；同一处失败超过阈值自动停止，避免死循环烧钱。支持中文断言（自动处理 Windows 编码）与参数化测试。",
   "keywords": [
