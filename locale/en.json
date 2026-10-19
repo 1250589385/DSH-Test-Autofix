@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Test AutoFix",
+    "description": "Runs your test suite and hands the agent structured failures — file, line, assertion — so it can fix them directly instead of reading raw output. Auto-detects pytest / jest / vitest / cargo / go / npm, keeps Chinese assertion messages intact on Windows, and stops when the same failure keeps repeating."
+  }
+}
