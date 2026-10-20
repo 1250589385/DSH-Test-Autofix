@@ -1,4 +1,0 @@
-{
-  "test_math_utils.py::test_divide_by_zero": true,
-  "test_math_utils.py::test_add_failure": true
-}
