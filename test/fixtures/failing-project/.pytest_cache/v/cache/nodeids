@@ -1,0 +1,6 @@
+[
+  "test_math_utils.py::test_add_failure",
+  "test_math_utils.py::test_add_ok",
+  "test_math_utils.py::test_divide_by_zero",
+  "test_math_utils.py::test_divide_ok"
+]
