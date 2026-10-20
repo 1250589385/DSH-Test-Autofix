@@ -5,6 +5,17 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.1.3] - 2026-10-21
+
+### 变更
+
+- **优化 npm 标签，让插件更容易被搜到**。补上了社区通用入口标签
+  `plugin` / `deepseek` / `harness`（此前只有 `dsh-plugin` / `deepseek-harness`，
+  只搜 `plugin` 或 `deepseek` 的人找不到本插件）。
+- 新增 `devtools` `developer-tools` `automation` `debugging`；
+  去掉 `test` `cargo` `go-test` `auto-fix` `test-loop`（前四个是泛词或错配，
+  后两个零人使用）。保留 `pytest` `jest` `vitest`，搜具体 runner 的人能找过来。
+
 ## [0.1.2] - 2026-10-19
 
 文档与工程性修正，插件行为无变化。
