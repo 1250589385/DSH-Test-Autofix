@@ -142,15 +142,46 @@ Windows 下 Python 子进程默认输出系统代码页（中文系统是 GBK）
 
 ## 安装
 
+> **命令里的 `<你的profile>` 换成你自己的 profile 名。** 不确定就查一下：
+> 环境变量 `$env:DSH_PROFILE` 直接给出当前值；桌面端常见 `desktop`，Web 端常见 `web`。
+
+### 方式一：从 npm 安装（推荐）
+
 ```bash
-dsh plugin --profile <你的profile> add DSH-Test-Autofix
+dsh plugin --profile <你的profile> add dsh-test-autofix
 ```
 
-或从源码目录安装：
+> `--profile` 是**必填**的，省略会报 `required option '--profile <name>' not specified`。
+> 包名全小写（npm 包名规范）；仓库名 `DSH-Test-Autofix` 只是 GitHub 上的地址。
+
+### 方式二：从 GitHub 仓库安装
 
 ```bash
-dsh plugin --profile <你的profile> add /绝对路径/DSH-Test-Autofix
+dsh plugin --profile <你的profile> add github:1250589385/DSH-Test-Autofix
 ```
+
+### 方式三：从源码目录安装（开发用，改代码即时生效）
+
+填**这个目录的真实路径**（反斜杠或正斜杠都可以）：
+
+```bash
+# Windows
+dsh plugin --profile desktop add D:\你的路径\DSH-Test-Autofix
+
+# macOS / Linux
+dsh plugin --profile web add /home/you/DSH-Test-Autofix
+```
+
+### 方式四：在 DSH 网页界面的安装框里装
+
+网页版 DSH 的「添加插件」对话框**只要包名**，不要整条命令：
+
+| 输入框里填 | 结果 |
+| --- | --- |
+| `dsh-test-autofix` | ✅ 正确 |
+| `dsh plugin --profile desktop add dsh-test-autofix` | ❌ 报 `not a package name the registry accepts` |
+
+意思是：**只把命令最后面那一段（包名）填进去**。Git 地址和本地绝对路径也可以直接填在同一个框里。
 
 装完重启 DSH，agent 就能看到 `run_tests` 工具。
 
