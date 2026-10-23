@@ -42,12 +42,12 @@
   "icon": "./icon.svg",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1250589385/DSH-Test-Autofix.git"
+    "url": "git+https://github.com/1250589385/dsh-test-autofix.git"
   },
   "bugs": {
-    "url": "https://github.com/1250589385/DSH-Test-Autofix/issues"
+    "url": "https://github.com/1250589385/dsh-test-autofix/issues"
   },
-  "homepage": "https://github.com/1250589385/DSH-Test-Autofix#readme",
+  "homepage": "https://github.com/1250589385/dsh-test-autofix#readme",
   "license": "MIT",
   "dsh": {
     "bundle": {
