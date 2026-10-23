@@ -157,7 +157,7 @@ dsh plugin --profile <你的profile> add dsh-test-autofix
 ### 方式二：从 GitHub 仓库安装
 
 ```bash
-dsh plugin --profile <你的profile> add github:1250589385/DSH-Test-Autofix
+dsh plugin --profile <你的profile> add github:1250589385/dsh-test-autofix
 ```
 
 ### 方式三：从源码目录安装（开发用，改代码即时生效）
